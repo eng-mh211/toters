@@ -9,37 +9,52 @@ class order_page extends StatefulWidget {
 
 class _order_pageState extends State<order_page> {
   @override
-  Widget build(BuildContext context) =>DefaultTabController(
-      length: 2, child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
+  Widget build(BuildContext context) => DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
-            bottom: TabBar(tabs: [
-              Tab(text: "Past Order",),
-              Tab(text: "Upcoming",),
-    ]),
-  ),
-    body: TabBarView(
-      children: [
-        Center(
-          child:Text("You do not have any past orders!"),
-        ),
-        Center(
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Image.asset("assets/images/warning.jpg"),
-                height: 200,
-                width: 200,
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  child: Text(
+                    "Past Orders",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+                Tab(
+                  child: Text(
+                    "Upcoming",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+              indicatorColor: Colors.green,
+            )),
+        body: TabBarView(
+          children: [
+            Center(
+              child: Text(
+                "You do not have any past orders!",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text("No upcoming orders")
-            ],
-          ),
-        )
-
-
-    ],
-  ),
-  ));
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Image.asset("assets/images/warning.jpg"),
+                    height: 200,
+                    width: 200,
+                  ),
+                  Text("No upcoming orders",
+                      style: TextStyle(fontWeight: FontWeight.bold))
+                ],
+              ),
+            )
+          ],
+        ),
+      ));
 }
